@@ -70,7 +70,7 @@ func doStuff(goNum int, arrived *int, max int, wg *sync.WaitGroup, sharedLock *s
 } //end-doStuff
 
 func main() {
-	totalRoutines := 5
+	totalRoutines := 10
 	arrived := 0
 	var wg sync.WaitGroup
 	wg.Add(totalRoutines)
