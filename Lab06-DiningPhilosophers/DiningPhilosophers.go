@@ -1,13 +1,10 @@
 //--------------------------------------------
-// Author: Joseph Kehoe (Joseph.Kehoe@setu.ie)
-// Created on 30/9/2024
-// Modified by: Dawid Pionk
+// Author: Dawid Pionk
+// Created on 21/10/24
 // Description:
-// A simple barrier implemented using mutex and unbuffered channel
+// A solution to the dinining philosophers problem
 // Issues:
 // None I hope
-//1. Change mutex to atomic variable
-//2. Make it a reusable barrier
 //--------------------------------------------
 
 package main
