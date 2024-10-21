@@ -1,5 +1,5 @@
 1. Project License: SetUp Exercises © 2024 by Dawid Pionk is licensed under CC BY-NC-SA 4.0 
 2. Authors of Project: Dawid Pionk
-3. How to install project: download from [here](https://github.com/DawidP2001/ConDevLabs/tree/main/Lab00-Setup)
-4. List of any required Libraries, platform issues, etc: golang: rsc.io/quote, golang.org/x/text, rsc.io/sampler
-5. List of files and what they contain: hello.go-simple hello world file, greetings: contains files for the greetings exercise, Go Cuncurrency essentials contains files of examples of concepts in concurrency
+3. How to install project: download from [here](https://github.com/DawidP2001/ConDevLabs/tree/main/Lab01-Setup)
+4. List of any required Libraries, platform issues, etc: golang: fmt, math/rand/v2, sync, time
+5. List of files and what they contain: rendezvous.go: simple implementation of a rendezvous using channels

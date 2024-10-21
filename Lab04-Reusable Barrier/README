@@ -1,0 +1,5 @@
+1. Project License: Reusable Barrier © 2024 by Dawid Pionk is licensed under CC BY-NC-SA 4.0 
+2. Authors of Project: Dawid Pionk
+3. How to install project: Download from [here](https://github.com/DawidP2001/ConDevLabs/tree/main/Lab04-Reusable%20Barrier)
+4. List of any required Libraries, platform issues, etc: golang: fmt, sync, time, sync/atomic
+5. List of files and what they contain: barrier2.go: a reusable barrier exercise, atomicVariables.go: barrier2.go exercise implemented using atomic variables

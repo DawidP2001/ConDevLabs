@@ -16,14 +16,12 @@
 
 //--------------------------------------------
 // Author: Joseph Kehoe (Joseph.Kehoe@setu.ie)
-// Created on 30/9/2024
+// Created on 7/10/2024
 // Modified by: Dawid Pionk
 // Description:
-// A simple barrier implemented using mutex and unbuffered channel
+// A simple reusable barrier implemented using mutex and unbuffered channel
 // Issues:
 // None I hope
-//1. Change mutex to atomic variable
-//2. Make it a reusable barrier
 //--------------------------------------------
 
 package main

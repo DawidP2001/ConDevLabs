@@ -18,8 +18,9 @@
 // Author: Joseph Kehoe (Joseph.Kehoe@setu.ie)
 // Created on 30/9/2024
 // Modified by: Dawid Pionk
+// Description: A simple barrier using semaphors and mutexes
 // Issues:
-// The barrier is not implemented!
+// The barrier doesn't work since more semaphores released than held
 //--------------------------------------------
 
 package main

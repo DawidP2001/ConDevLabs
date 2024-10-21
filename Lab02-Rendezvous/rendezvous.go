@@ -1,3 +1,10 @@
+//--------------------------------------------
+// Author: Joseph Kehoe (Joseph.Kehoe@setu.ie)
+// Created on 23/9/2024
+// Modified by: Dawid Pionk
+// Description: A simple rendezvous using channels
+//--------------------------------------------
+
 package main
 
 import (
@@ -31,7 +38,7 @@ func WorkWithRendezvous(wg *sync.WaitGroup, Num int, barrierSem chan bool, arriv
 func main() {
 	var wg sync.WaitGroup
 	barrierSem := make(chan bool)
-	threadCount := 5
+	threadCount := 2
 	arrived := 0
 	wg.Add(threadCount)
 	for N := range threadCount {
