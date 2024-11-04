@@ -9,6 +9,10 @@
 
 package main
 
+func runSim() {
+	// Chronons pass
+}
+
 func main() {
 	numShark := 0   // Starting population of sharks
 	numFish := 0    // Starting population of fish

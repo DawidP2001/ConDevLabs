@@ -4,7 +4,6 @@
 // Description:
 // A solution to the dinining philosophers problem
 // Issues:
-// 1. Sempaphore per fork
 //--------------------------------------------
 
 package main
@@ -27,10 +26,10 @@ func get_forks(philID int, forks map[int]chan bool, count int, semChannel chan b
 	forks[(philID+1)%count] <- true // Fork right wait
 }
 
-func put_forks(philID int, forks map[int]chan bool, count int, semChannel chan bool) {
+func put_forks(philID int, forks map[int]chan bool, count int, semChannel chan bool) { // Semaphore go
 	<-forks[philID]           // fork left go
 	<-forks[(philID+1)%count] // fork right go
-	<-semChannel              // Sempaphore go
+	<-semChannel              // Sempahore go
 }
 func eat(myId int, eatTime int) {
 	seconds := rand.IntN(eatTime) + 1
@@ -57,7 +56,7 @@ func main() {
 	thinkTime := 3 // Max amount in seconds for how long they think
 	eatTime := 5   // Max amount in seconds for how long they eat
 
-	semChannel := make(chan bool, 4) // Makes cannel for semaphores
+	semChannel := make(chan bool, 4) // Makes channel for semaphores
 	forks := make(map[int]chan bool) // Makes a channel of channels
 	for i := 0; i < 5; i++ {
 		forks[i] = make(chan bool, 1) // Places channels inside forks
