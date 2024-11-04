@@ -34,7 +34,7 @@ import (
 
 // Place a barrier in this function --use Mutex's and Semaphores
 func doStuff(goNum int, arrived *int, max int, wg *sync.WaitGroup, sharedLock *sync.Mutex, theChan chan bool, theChan2 chan bool) bool {
-	for i := 0; i < 2; i++ {
+	for i := 0; i < 4; i++ {
 		time.Sleep(time.Second)
 		fmt.Println("Part A", goNum)
 		//we wait here until everyone has completed part A

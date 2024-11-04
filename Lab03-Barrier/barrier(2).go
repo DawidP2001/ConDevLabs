@@ -20,35 +20,32 @@
 // Modified by: Dawid Pionk
 // Description: A simple barrier using semaphors and mutexes
 // Issues:
-// The barrier doesn't work since more semaphores released than held
+// None
 //--------------------------------------------
 
 package main
 
 import (
-	"context"
 	"fmt"
 	"sync"
 	"time"
-
-	"golang.org/x/sync/semaphore"
 )
 
 // Place a barrier in this function --use Mutex's and Semaphores
-func doStuff(goNum int, arrived *int, max int, wg *sync.WaitGroup, theLock *sync.Mutex, sem *semaphore.Weighted, ctx context.Context) bool {
+func doStuff(goNum int, arrived *int, max int, wg *sync.WaitGroup, theLock *sync.Mutex, semChan chan bool) bool {
 	time.Sleep(time.Second)
 	fmt.Println("Part A", goNum)
 	theLock.Lock()
 	*arrived++
 
 	if *arrived == max {
-		sem.Release(1) // all go
 		theLock.Unlock()
-		sem.Acquire(ctx, 1)
+		semChan <- true
+		<-semChan
 	} else {
 		theLock.Unlock()
-		sem.Acquire(ctx, 1) // stop
-		sem.Release(1)
+		<-semChan
+		semChan <- true
 	}
 	//we wait here until everyone has completed part A
 	fmt.Println("Part B", goNum)
@@ -61,12 +58,10 @@ func main() {
 	arrived := 0
 	var wg sync.WaitGroup
 	wg.Add(totalRoutines)
-	//we will need some of these
-	ctx := context.TODO()
+	semChan := make(chan bool)
 	var theLock sync.Mutex
-	sem := semaphore.NewWeighted(0)
 	for i := range totalRoutines { //create the go Routines here
-		go doStuff(i, &arrived, totalRoutines, &wg, &theLock, sem, ctx)
+		go doStuff(i, &arrived, totalRoutines, &wg, &theLock, semChan)
 	}
 
 	wg.Wait() //wait for everyone to finish before exiting

@@ -4,7 +4,7 @@
 // Description:
 // A solution to the dinining philosophers problem
 // Issues:
-// None I hope
+// 1. Sempaphore per fork
 //--------------------------------------------
 
 package main

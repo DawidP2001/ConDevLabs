@@ -1,6 +1,7 @@
-1. Project License: Barrier © 2024 by Dawid Pionk is licensed under CC BY-NC-SA 4.0 
-2. Authors of Project: Dawid Pionk
-3. How to install project: Download from [here](https://github.com/DawidP2001/ConDevLabs/tree/main/Lab03-Barrier)
-4. List of any required Libraries, platform issues, etc: golang: golang.org/x/sync, context, fmt, sync, time
-5. TO DO section: Fix error with more sempahores released than held
-6. List of files and what they contain: barrier(2).go: a simple barrier 
+1. Project Licence: Rendezvous © 2024 by Dr. Joseph Kehoe is licensed under GNU General Public License as published by the Free Software Foundation
+2. Authors of Project: Joseph Kehoe
+3. Modified By: Dawid Pionk
+4. How to install project: Download from [here](https://github.com/DawidP2001/ConDevLabs/tree/main/Lab03-Barrier)
+5. List of required Libraries: golang.org/x/sync, context, fmt, sync, time
+6. TO DO: None
+7. List of files and what they contain: barrier(2).go - a simple barrier 

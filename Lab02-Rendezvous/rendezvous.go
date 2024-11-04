@@ -1,3 +1,19 @@
+//rendezvous.go Template Code
+//Copyright (C) 2024 Dr. Joseph Kehoe
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 //--------------------------------------------
 // Author: Joseph Kehoe (Joseph.Kehoe@setu.ie)
 // Created on 23/9/2024
@@ -16,14 +32,14 @@ import (
 
 //Global variables shared between functions --A BAD IDEA
 
-func WorkWithRendezvous(wg *sync.WaitGroup, Num int, barrierSem chan bool, arrived *int) bool {
+func WorkWithRendezvous(wg *sync.WaitGroup, Num int, barrierSem chan bool, arrived *int, threads int) bool {
 	var X time.Duration
 	X = time.Duration(rand.IntN(5))
 	time.Sleep(X * time.Second) //wait random time amount
 	fmt.Println("Part A", Num)
 	//Rendezvous here
 	*arrived++
-	if *arrived == 5 {
+	if *arrived == threads {
 		barrierSem <- true
 		<-barrierSem
 	} else {
@@ -38,12 +54,12 @@ func WorkWithRendezvous(wg *sync.WaitGroup, Num int, barrierSem chan bool, arriv
 func main() {
 	var wg sync.WaitGroup
 	barrierSem := make(chan bool)
-	threadCount := 2
+	threadCount := 5
 	arrived := 0
 	wg.Add(threadCount)
 	for N := range threadCount {
-		go WorkWithRendezvous(&wg, N, barrierSem, &arrived)
+		go WorkWithRendezvous(&wg, N, barrierSem, &arrived, threadCount)
 	}
-	wg.Wait() //wait here until everyone (10 go routines) is done
+	wg.Wait() //wait here until everyone is done
 
 }
