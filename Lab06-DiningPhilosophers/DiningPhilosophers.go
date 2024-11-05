@@ -3,7 +3,7 @@
 // Created on 21/10/24
 // Description:
 // A solution to the dinining philosophers problem
-// Issues:
+// Issues: None
 //--------------------------------------------
 
 package main
